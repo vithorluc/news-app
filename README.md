@@ -1,18 +1,53 @@
-# Vue 3 + TypeScript + Vite
+# Projeto Vite Vue3 TypeScript
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Este projeto é uma aplicação web desenvolvida utilizando as seguintes tecnologias:
 
-## Recommended IDE Setup
+- [Vite](https://vitejs.dev/): Um build tool e bundler extremamente rápido para projetos web.
+- [Vue 3](https://v3.vuejs.org/): Um framework JavaScript progressivo para construir interfaces de usuário.
+- [TypeScript](https://www.typescriptlang.org/): Uma linguagem de programação que adiciona tipagem estática ao JavaScript.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Arquitetura do Projeto
 
-## Type Support For `.vue` Imports in TS
+A estrutura do projeto é organizada da seguinte forma:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+```
+src
+├── views
+│   ├── MainPage.vue
+│   └── ...
+├── components
+│   ├── SearchBar.vue
+│   ├── ListNews.vue
+│   ├── NewCard.vue
+│   └── ...
+└── assets
+    ├── styles
+    │   └── main.scss
+    └── ...
+```
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+- **views**: Esta pasta contém as visualizações (ou páginas) principais da aplicação. Por exemplo, o arquivo `MainPage.vue` representa a página principal do projeto.
+- **components**: Nesta pasta estão os componentes reutilizáveis da aplicação. Cada componente é armazenado em seu próprio arquivo Vue. Alguns exemplos de componentes incluem `SearchBar.vue`, `ListNews.vue` e `NewCard.vue`.
+- **assets**: Aqui são armazenados os ativos estáticos da aplicação, como imagens, fontes e arquivos de estilo. A pasta `styles` contém o arquivo `main.scss`, que é responsável por fornecer estilos globais para a aplicação.
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## Funcionalidades
+
+Este projeto também faz chamadas para a API de notícias [NewsAPI](https://newsapi.org/). A API é utilizada para recuperar as notícias mais recentes com base em palavras-chave e categorias selecionadas.
+
+As chamadas para a API são feitas no componente `MainPage.vue`, utilizando o método `fetchNews`. O endpoint utilizado é `https://newsapi.org/v2/top-headlines`, onde são passados parâmetros como país, palavra-chave e categoria para obter as notícias desejadas.
+
+## Executando o Projeto Localmente
+
+Para executar o projeto localmente, siga estas etapas:
+
+1. Certifique-se de ter o Node.js instalado em sua máquina.
+2. Clone o repositório do projeto.
+3. Abra o terminal na raiz do projeto.
+4. Execute o comando `npm install` para instalar as dependências.
+5. Abra o arquivo `MainPage.vue` e substitua a variável `apiKey` pelo seu próprio valor da chave de API da NewsAPI.
+6. Execute o comando `npm run dev` para iniciar o servidor de desenvolvimento.
+7. Acesse `http://localhost:5173` em seu navegador para visualizar a aplicação em execução.
+
+Agora você pode explorar o projeto, fazer pesquisas de notícias e visualizar os resultados obtidos da API da NewsAPI.
+
+Divirta-se explorando o projeto Vite Vue3 TypeScript e as notícias fornecidas pela API!
